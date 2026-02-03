@@ -35,6 +35,7 @@ Item {
   readonly property string barPosition: Settings.getBarPositionForScreen(screenName)
   readonly property bool isBarVertical: barPosition === "left" || barPosition === "right"
   readonly property string displayMode: (widgetSettings.displayMode !== undefined) ? widgetSettings.displayMode : widgetMetadata.displayMode
+  readonly property bool reverseScroll: (widgetSettings.reverseScroll !== undefined) ? widgetSettings.reverseScroll : (widgetMetadata.reverseScroll || false)
 
   // Used to avoid opening the pill on Quickshell startup
   property bool firstBrightnessReceived: false
@@ -158,6 +159,9 @@ Item {
       var monitor = brightnessMonitor;
       if (!monitor || !monitor.brightnessControlAvailable)
         return;
+
+      if (root.reverseScroll)
+        angle *= -1;
 
       if (angle > 0) {
         monitor.increaseBrightness();

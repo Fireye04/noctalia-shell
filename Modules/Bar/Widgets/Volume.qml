@@ -37,6 +37,7 @@ Item {
   readonly property bool isBarVertical: barPosition === "left" || barPosition === "right"
   readonly property string displayMode: (widgetSettings.displayMode !== undefined) ? widgetSettings.displayMode : widgetMetadata.displayMode
   readonly property string middleClickCommand: (widgetSettings.middleClickCommand !== undefined) ? widgetSettings.middleClickCommand : widgetMetadata.middleClickCommand
+  readonly property bool reverseScroll: (widgetSettings.reverseScroll !== undefined) ? widgetSettings.reverseScroll : (widgetMetadata.reverseScroll || false)
 
   // Used to avoid opening the pill on Quickshell startup
   property bool firstVolumeReceived: false
@@ -132,6 +133,9 @@ Item {
     onWheel: function (delta) {
       // Hide tooltip as soon as the user starts scrolling to adjust volume
       TooltipService.hide();
+
+      if (root.reverseScroll)
+        delta *= -1;
 
       wheelAccumulator += delta;
       if (wheelAccumulator >= 120) {

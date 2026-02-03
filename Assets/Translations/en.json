@@ -255,7 +255,9 @@
     },
     "volume": {
       "display-mode-description": "Choose how you'd like this value to appear.",
-      "display-mode-label": "Display mode"
+      "display-mode-label": "Display mode",
+      "reverse-scrolling-description": "Reverse the increase and decrease of volume when scrolling.",
+      "reverse-scrolling-label": "Reverse scrolling"
     },
     "workspace": {
       "character-count-description": "Number of characters to display from workspace names (1-10).",

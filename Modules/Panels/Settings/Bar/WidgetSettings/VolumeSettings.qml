@@ -17,11 +17,13 @@ ColumnLayout {
   // Local state
   property string valueDisplayMode: widgetData.displayMode !== undefined ? widgetData.displayMode : widgetMetadata.displayMode
   property string valueMiddleClickCommand: widgetData.middleClickCommand !== undefined ? widgetData.middleClickCommand : widgetMetadata.middleClickCommand
+  property bool valueReverseScroll: widgetData.reverseScroll !== undefined ? widgetData.reverseScroll : widgetMetadata.reverseScroll
 
   function saveSettings() {
     var settings = Object.assign({}, widgetData || {});
     settings.displayMode = valueDisplayMode;
     settings.middleClickCommand = valueMiddleClickCommand;
+    settings.reverseScroll = valueReverseScroll;
     return settings;
   }
 
@@ -48,6 +50,17 @@ ColumnLayout {
                   valueDisplayMode = key;
                   settingsChanged(saveSettings());
                 }
+  }
+
+  NToggle {
+    label: I18n.tr("bar.volume.reverse-scrolling-label")
+    description: I18n.tr("bar.volume.reverse-scrolling-description")
+    checked: valueReverseScroll
+    onToggled: checked => {
+                 valueReverseScroll = checked;
+                 settingsChanged(saveSettings());
+               }
+    visible: valueEnableScrollWheel
   }
 
   // Middle click command

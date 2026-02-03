@@ -255,7 +255,9 @@
     },
     "volume": {
       "display-mode-description": "Elige cómo te gustaría que apareciera este valor.",
-      "display-mode-label": "Modo de visualización"
+      "display-mode-label": "Modo de visualización",
+      "reverse-scrolling-description": "Invertir la dirección del cambio del volumen de trabajo al desplazarse.",
+      "reverse-scrolling-label": "Desplazamiento inverso"
     },
     "workspace": {
       "character-count-description": "Número de caracteres a mostrar de los nombres de espacios de trabajo (1-10).",

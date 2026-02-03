@@ -27,6 +27,7 @@
     },
     "Brightness": {
       "displayMode": "onhover"
+      "reverseScroll": false
     },
     "Clock": {
       "usePrimaryColor": false,
@@ -191,6 +192,7 @@
     "Volume": {
       "displayMode": "onhover",
       "middleClickCommand": "pwvucontrol || pavucontrol"
+      "reverseScroll": false
     }
   },
   "controlCenter": {
